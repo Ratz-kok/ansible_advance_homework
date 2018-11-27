@@ -30,11 +30,11 @@
 
 - name: Associate AWS tags as children to appdbs group
   command: |
-    tower-cl -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"i group associate --group tag_AnsibleGroup_appdbs --parent appdbs --inventory "{{ec2_dynamic_inventory}}"
+    tower-cli group associate --group tag_AnsibleGroup_appdbs --parent appdbs --inventory "{{ec2_dynamic_inventory}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 - name: Add localhost as host 
   command: |
-    tower-cli host create -n localhost --inventory "{{ec2_dynamic_inventory}}" --variables @/root/invent -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"ory_vars.json
+    tower-cli host create -n localhost --inventory "{{ec2_dynamic_inventory}}" --variables @/root/inventory_vars.json -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 - name: Create inventory source with ec2 script
   command: | 
