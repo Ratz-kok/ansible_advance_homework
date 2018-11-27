@@ -17,4 +17,4 @@
 - name: Copy inventory vars
   copy:
     src: inventory_vars.json
-dest: /root/inventory_vars.json
+    dest: /root/inventory_vars.json
