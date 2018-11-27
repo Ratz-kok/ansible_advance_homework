@@ -37,7 +37,11 @@
     tower-cli host create -n localhost --inventory "{{ec2_dynamic_inventory}}" --variables @/root/inventory_vars.json -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 - name: Create inventory source with ec2 script
-  command: | 
-    tower-cli inventory_source create -n "{{ec2_inventory_source}}" --inventory "{{ec2_dynamic_inventory}}" --source ec2 --credential "{{aws_read_keys}}" --source-regions "{{aws_region_name}}" --instance-filters "{{tag_filters}}" --overwrite yes --update-on-launch yes -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
+  command: |
+    tower-cli inventory_source create -n "{{ec2_inventory_source}}" --inventory "{{ec2_dynamic_inventory}}" --source ec2 --credential "{{aws_read_keys}}" --source-regions "{{aws_region_name}}" --instance-filters "{{tag_filters}}" --overwrite yes --update-on-launch yes
+
+    ##- name: Create inventory source with ec2 script
+    ##  command: | 
+    ##    tower-cli inventory_source create -n "{{ec2_inventory_source}}" --inventory "{{ec2_dynamic_inventory}}" --source ec2 --credential "{{aws_read_keys}}" --source-regions "{{aws_region_name}}" --instance-filters "{{tag_filters}}" --overwrite yes --update-on-launch yes -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 ## Use tower-cli or tower module to use AWS Dynamic Inventory as source use tag:instance_filter=three-tier-app-<mail> for filtering instances. Details are given in instruction 
