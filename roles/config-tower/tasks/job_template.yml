@@ -1,23 +1,23 @@
 - name: Job template for OSP Instances
   command: |
-    tower-cli job_template create --name "{{job_template_name_osp_instances}}" --job-type run --inventory "{{static_inventory_name}}" --project "{{proj_name}}" --playbook "{{osp_instances_playbook}}" --credential "{{ssh_cred_name}}"
+    tower-cli job_template create --name "{{job_template_name_osp_instances}}" --job-type run --inventory "{{static_inventory_name}}" --project "{{proj_name}}" --playbook "{{osp_instances_playbook}}" --credential "{{ssh_cred_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 - name: Associate IG to OSP instances job template 
   command: |
-    tower-cli job_template associate_ig --job_template "{{job_template_name_osp_instances}}" --instance_group "{{instance_group_name}}"
+          tower-cli job_template associate_ig --job_template "{{job_template_name_osp_instances}}" --instance_group "{{instance_group_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 
 - name: Create vault credential
   command: |
-    tower-cli credential create --name="yum-repo-cred" --organization "{{org_name}}" --inputs='{"vault_password":"ansible"}'  --credential-type="Vault"
+          tower-cli credential create --name="yum-repo-cred" --organization "{{org_name}}" --inputs='{"vault_password":"ansible"}'  --credential-type="Vault" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 - name: Job template for 3tier app deploy on QA Env
   command: |
-    tower-cli job_template create --name "{{job_template_name_3tier_app}}" --job-type run --inventory "{{static_inventory_name}}" --project "{{proj_name}}" --playbook "{{app_deploy_playbook}}" --credential "{{ssh_cred_name}}" --vault-credential "yum-repo-cred"
+          tower-cli job_template create --name "{{job_template_name_3tier_app}}" --job-type run --inventory "{{static_inventory_name}}" --project "{{proj_name}}" --playbook "{{app_deploy_playbook}}" --credential "{{ssh_cred_name}}" --vault-credential "yum-repo-cred" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 - name: Associate IG to 3tier job template  
   command: |
-    tower-cli job_template associate_ig --job_template "{{job_template_name_3tier_app}}" --instance_group "{{instance_group_name}}"
+          tower-cli job_template associate_ig --job_template "{{job_template_name_3tier_app}}" --instance_group "{{instance_group_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 
 #- name: Job template to delete OSP Instances
