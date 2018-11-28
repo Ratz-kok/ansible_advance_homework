@@ -14,6 +14,12 @@
       dest: /root/ansible-tower-setup-3.2.8/inventory
     when: setup_tower == "yes"
 
+  - name: Run Ansible Tower setup
+    shell: /root/ansible-tower-setup-3.2.8/setup.sh
+    async: 3600
+    poll: 36
+    when: setup_tower == "yes"
+
   - name: Append inventory file
     blockinfile:
       path: /root/ansible-tower-setup-3.2.8/inventory
@@ -30,4 +36,8 @@
     async: 3600
     poll: 36
     when: setup_tower == "yes"
-
+  - name: Install tower-cli
+    package: 
+      name: python2-ansible-tower-cli.noarch
+      state: present
+    when: setup_tower == "yes"
