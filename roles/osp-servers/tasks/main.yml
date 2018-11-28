@@ -62,4 +62,7 @@
     - "{{ result.ansible_facts.openstack_servers }}"
   tags:
     - test.servers
+<<<<<<< HEAD
+=======
 
+>>>>>>> 25fba4c7c24c6fb4b1c90e8d62f449ff94d9ba79
