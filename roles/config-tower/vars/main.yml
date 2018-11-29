@@ -23,10 +23,10 @@ job_template_name_osp_instances_delete: "Nuke QA Env"
 osp_instances_delete_playbook: site-osp-delete.yml
 job_template_smoke_osp: "Smoke test QA Env"
 osp_smoke_playbook: site-smoke-osp.yml
-#job_template_aws_provision: "Provision Prod Env"
-job_template_aws_provision: aws_provision.yml
+job_template_aws_provision: "Provision Prod Env"
+#job_template_aws_provision: aws_provision.yml
 aws_provision_playbook: aws_provision.yml
-ec2_dynamic_inventory: "Three tier inventory"
+ec2_dynamic_inventory: "Three tier Inventory"
 aws_ssh_playbook: aws_creds.yml
 opentlc_cred_name: "Opentlc key"
 job_template_aws_ssh_keys: "SSH keys three tier app"
