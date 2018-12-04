@@ -8,8 +8,8 @@
     backup: yes
 
 - name: enable repos
-  template:
-    src: repos_template.j2
+  file:
+    src: open_three-tier-app.repo
     dest: /etc/yum.repos.d/open_three-tier-app.repo
     mode: 0644
 
