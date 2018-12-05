@@ -1,4 +1,4 @@
-- hosts: three-tier-app-pmumenth*
+- hosts: three-tier-app-pmumenth@redhat.com
   gather_facts: false
   tasks:
   - name: Check the instances status
