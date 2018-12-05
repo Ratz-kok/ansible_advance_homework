@@ -31,7 +31,7 @@
     server: "{{ item.value.name }}"
     network: ext_network
     wait: true
-    timeout: 200
+    timeout: 400
   with_dict: "{{osp_servers}}"
   tags:
   - test.servers
