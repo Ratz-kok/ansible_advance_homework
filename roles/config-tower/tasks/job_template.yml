@@ -17,7 +17,7 @@
 
 - name: Associate IG to 3tier job template  
   command: |
-          tower-cli job_template associate_ig --job_template "{{job_template_name_3tier_app}}" --instance_group "{{instance_group_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}" --force-on-exists
+          tower-cli job_template associate_ig --job_template "{{job_template_name_3tier_app}}" --instance_group "{{instance_group_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}"
 
 
 - name: Job template to delete OSP Instances
