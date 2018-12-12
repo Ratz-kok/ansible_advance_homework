@@ -35,7 +35,7 @@
 
 - name: Associate IG to Smoke test job template 
   command: |
-    tower-cli job_template associate_ig --job_template "{{job_template_smoke_osp}}" --instance_group "{{instance_group_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}" --force-on-exists
+    tower-cli job_template associate_ig --job_template "{{job_template_smoke_osp}}" --instance_group "{{instance_group_name}}" -h "https://tower1.{{tower_GUID}}.example.opentlc.com" -u "{{user_name}}" -p "{{password}}" 
 
 - name: Job template for Provisioning AWS env
   command: |
